@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── 컨테이너 ── */
+.qr-container {
+    width: 430px;
+    height: 931px;
+    background: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── 닫기 버튼 Figma: x:47, y:92 ── */
+.btn-close {
+    position: absolute;
+    top: 92px;
+    left: 47px;
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-close img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* ── 제목 Figma: y:230, body/18/medium ── */
+.qr-title {
+    position: absolute;
+    top: 230px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1F1F1F;
+    letter-spacing: -0.3px;
+}
+
+/* ── QR 영역 Figma: x:112, y:277, 206×206px ── */
+.qr-area {
+    position: absolute;
+    left: 112px;
+    top: 277px;
+    width: 206px;
+    height: 206px;
+}
+
+/* Figma qr box: 206×206px */
+.qr-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 206px;
+    height: 206px;
+    object-fit: contain;
+}
+
+/* Figma qr code: x:134.56→offset 22.56px, y:300→offset 23px, 160.88×160.88px */
+.qr-code {
+    position: absolute;
+    left: 22.56px;
+    top: 23px;
+    width: 160.88px;
+    height: 160.88px;
+    object-fit: contain;
+}
+
+/* ── 카드 공통 Figma: x:30, w:370, h:100.68, bg:#EDF4FA, radius:15px ── */
+.card-item {
+    position: absolute;
+    left: 30px;
+    width: 370px;
+    height: 101px;
+    background: #EDF4FA;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+
+/* ── 카드 왼쪽 영역 ── */
+.card-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ── KB 로고 원형 배경 Figma: 48×48px, bg:#4A483F, radius:50% ── */
+.kb-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #4A483F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kb-logo img {
+    width: 26px;
+    height: 19px;
+    object-fit: contain;
+}
+
+/* ── 카드 텍스트 ── */
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Figma body/12/medium */
+.card-name {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+}
+
+/* Figma body/11/regular */
+.card-number {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+}
+
+/* ── 카드 오른쪽 (nori pay 로고) ── */
+.card-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.card-right img {
+    height: 26px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ── 하단 버튼 행 Figma: x:30, y:827, gap:6px ── */
+.btn-row {
+    position: absolute;
+    left: 30px;
+    top: 827px;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    z-index: 10;
+}
+
+/* ── 다시 만들기 버튼 Figma: 182×54px, bg:#F8F8F8, radius:10px ── */
+.btn-remake {
+    width: 182px;
+    height: 54px;
+    background: #F8F8F8;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5D5D5D;
+    letter-spacing: -0.2px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-remake:active {
+    opacity: 0.8;
+}
+
+/* ── 이미지 저장 버튼 Figma: 182×54px, bg:#2F8EE0, radius:10px ── */
+.btn-save {
+    width: 182px;
+    height: 54px;
+    background: #2F8EE0;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: -0.2px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-save:active {
+    background: #2579c3;
+}

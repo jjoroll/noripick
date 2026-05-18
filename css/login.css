@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pretendard", sans-serif;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+body {
+    width: 430px;
+    height: 931px;
+    margin: 0;
+    position: relative;
+    background-image: url('../images/onboarding/onboarding.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 30px;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 15vh;
+}
+
+.login-form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom: 1px solid #fff;
+}
+
+.input-group input::placeholder {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 18px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.0rem;
+    font-weight: 200;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.btn-social {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-kakao svg {
+    fill: #000;
+}
+
+.btn-naver span {
+    color: #000;
+}
+
+.signup-link {
+    text-align: center;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.signup-link a {
+    color: #FFA722;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+}

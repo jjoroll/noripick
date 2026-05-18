@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── 컨테이너 ── */
+.pay-container {
+    width: 430px;
+    height: 931px;
+    background: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── 뒤로가기 버튼 ── */
+/* Figma: absolute x:36, y:93 */
+.back-btn {
+    position: absolute;
+    top: 93px;
+    left: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-btn img {
+    width: 29px;
+    height: 26px;
+    object-fit: contain;
+}
+
+/* ── 메인 콘텐츠 ── */
+/* Figma Pay frame: padding 158px top / 121px bottom */
+.pay-inner {
+    position: absolute;
+    top: 158px;
+    left: 0;
+    right: 0;
+    bottom: 121px;
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
+}
+
+/* ── 인사말 ── */
+/* Figma h2-title: padding 0px 38px, font 28px/600, line-height 42px */
+.pay-greeting {
+    padding: 0 38px;
+}
+
+.pay-greeting h2 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 42px;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+.blue {
+    color: #2F8EE0;
+}
+
+/* ── 중앙 영역: 바코드 + 우측 ── */
+/* Figma div-center: row, align-items:flex-end, gap:40px, padding 0px 36px */
+.pay-center {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 40px;
+    padding: 0 36px;
+}
+
+/* ── 바코드 ── */
+/* Figma div-leftBox: width:85, height:345 */
+.pay-barcode {
+    width: 85px;
+    height: 345px;
+    flex-shrink: 0;
+}
+
+.pay-barcode img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/* ── 우측 컨테이너 ── */
+/* Figma div-rightBox: column, gap:20px */
+.pay-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ── 페이 번호 ── */
+/* Figma li-payNumber: column, gap:2px */
+.pay-number {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* "노리픽페이 번호" — Figma body/12/medium, #2F8EE0 */
+.pay-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #2F8EE0;
+    line-height: 20px;
+    letter-spacing: 0;
+}
+
+/* "2140 5707 / 0762 2088" — Figma 28px/600, line-height:30px */
+.pay-digits {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #000000;
+    letter-spacing: -0.3px;
+}
+
+/* ── QR 버튼 ── */
+/* Figma li-QR01/02: width:full, height:50px, bg:#F8F8F8, radius:10px */
+.qr-btn {
+    width: 100%;
+    height: 50px;
+    background: #F8F8F8;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* "QR 스캔하기 / QR 보여주기" — Figma body/16/medium, #1F1F1F */
+.qr-btn span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1F1F1F;
+    line-height: 30px;
+    letter-spacing: -0.2px;
+}
+
+.qr-btn img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.qr-btn:active {
+    background: #efefef;
+}
+
+/* ── 보유 현황 박스 ── */
+/* Figma ul-boxList: row, gap:5px, padding 0px 39px */
+.pay-stats {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0 39px;
+    list-style: none;
+}
+
+/* Figma li-01/02/03: 116×116px, bg:#FAFAFA, radius:20px */
+.stat-box {
+    flex: 1;
+    height: 116px;
+    background: #FAFAFA;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* "보유 포인트 / 내 쿠폰 / 상품권" — Figma body/12, #2F8EE0, center */
+.stat-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #2F8EE0;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* "1,910P / 1장 / 2장" — Figma title/24/semibold, #1F1F1F */
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1F1F1F;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}

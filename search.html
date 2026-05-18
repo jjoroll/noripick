@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - Search</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+    <div class="search-container">
+
+        <!-- 헤더 (뒤로가기) -->
+        <header class="search-header">
+            <button class="back-btn" aria-label="뒤로가기" onclick="history.back()">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 18L9 12L15 6"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- 검색창 -->
+        <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="#858585" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8.5" cy="8.5" r="5.5"/>
+                <line x1="13.5" y1="13.5" x2="18" y2="18"/>
+            </svg>
+            <input type="text" class="search-input" placeholder="키즈카페를 개별 검색하여 찾아보세요">
+        </div>
+
+        <!-- 필터 목록 -->
+        <ul class="filter-list">
+
+            <!-- 정렬 기준 -->
+            <li class="filter-group">
+                <h3 class="filter-title">정렬 기준</h3>
+                <ul class="filter-options">
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="sort" value="popular" checked>
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">인기순</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="sort" value="satisfaction">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">만족도순</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="sort" value="distance">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">거리순</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="sort" value="price">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">가격순</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 키즈카페 유형 -->
+            <li class="filter-group">
+                <h3 class="filter-title">키즈카페 유형</h3>
+                <ul class="filter-options">
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="indoor">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">실내형</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="outdoor" checked>
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">야외형</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 키즈카페 취향 -->
+            <li class="filter-group">
+                <h3 class="filter-title">키즈카페 취향</h3>
+                <ul class="filter-options">
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="theme" value="experience">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">체험형</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="theme" value="adventure">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">모험형</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="theme" value="sensory">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">오감형</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="theme" value="growth" checked>
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">성장형</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 시설 여부 -->
+            <li class="filter-group">
+                <h3 class="filter-title">시설 여부</h3>
+                <ul class="filter-options">
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="facility" value="nursing">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">수유실</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="facility" value="parking" checked>
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">주차장</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="facility" value="lounge">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">휴게실</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-label">
+                            <input type="radio" name="facility" value="newborn">
+                            <span class="radio-circle"></span>
+                            <span class="radio-text">신생아 수면실</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <!-- 검색 버튼 -->
+        <button class="search-btn" onclick="location.href='detail.html'">검색</button>
+
+    </div>
+</body>
+</html>

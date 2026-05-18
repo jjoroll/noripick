@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 시립 뚝섬자벌레점</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+    <div class="detail-container">
+
+        <!-- 상단 이미지 슬라이더 -->
+        <div class="detail-img-wrap">
+
+            <!-- 슬라이드 트랙 -->
+            <div class="slide-track" id="slideTrack">
+                <img src="images/detail_page/01.png" alt="시립 뚝섬자벌레점" class="slide-img">
+                <img src="images/detail_page/02.png" alt="시립 뚝섬자벌레점" class="slide-img">
+                <img src="images/detail_page/03.png" alt="시립 뚝섬자벌레점" class="slide-img">
+            </div>
+
+            <div class="img-gradient"></div>
+
+            <!-- 뒤로가기 / 찜 아이콘 -->
+            <button class="btn-back" aria-label="뒤로가기" onclick="history.back()">
+                <img src="images/icon/Property 1=back.png" alt="뒤로가기">
+            </button>
+            <button class="btn-pick" aria-label="찜하기">
+                <img src="images/icon/Property 1=pick.png" alt="찜하기">
+            </button>
+
+            <!-- 페이지네이션 점 -->
+            <div class="slide-dots" id="slideDots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- 장소명 + 주소 -->
+        <div class="detail-title">
+            <h2>시립 뚝섬자벌레점</h2>
+            <p class="detail-addr">광진구 강변북로 2202</p>
+        </div>
+
+        <!-- 정보 목록 -->
+        <ul class="detail-info">
+
+            <!-- 운영시간 -->
+            <li class="info-item">
+                <img src="images/icon/Property 1=time.png" alt="운영시간" class="info-icon">
+                <p class="info-text">
+                    <span class="lbl">화~금요일 : </span>9:40 - 23:40<br>
+                    <span class="lbl">토~일요일 : </span>9:30 - 23:30<br>
+                    <span class="lbl">점심 : </span>12:00 - 13:00<br>
+                    <span class="lbl">휴무 : </span>월요일, 법정공휴일
+                </p>
+            </li>
+
+            <!-- 연령 / 정원 -->
+            <li class="info-item">
+                <img src="images/icon/Property 1=freind.png" alt="정원" class="info-icon">
+                <p class="info-text">
+                    <span class="lbl">연령 : </span>0 - 6세 (연나이)<br>
+                    <span class="lbl">정원 : </span>개인 43명, 단체 43명<br>
+                    <span class="lbl">돌봄 : </span>36개월 이상
+                </p>
+            </li>
+
+            <!-- 요금 -->
+            <li class="info-item">
+                <img src="images/icon/Property 1=point.png" alt="요금" class="info-icon">
+                <p class="info-text">
+                    <span class="lbl">요금 : </span>5,000원 (아이 1명당)<br>
+                    <span class="lbl">단체 : </span>2,000원<br>
+                    <span class="lbl">돌봄 : </span>2,000원
+                </p>
+            </li>
+
+            <!-- 교통 / 주차 -->
+            <li class="info-item">
+                <img src="images/icon/Property 1=car.png" alt="교통" class="info-icon">
+                <p class="info-text">
+                    <span class="lbl">자차 : </span>유료주차(뚝섬 한강공원 3,4) 10분 200원<br>
+                    <span class="lbl">버스 : </span>초록 2014번(신양초 앞 하차)<br>
+                    <span class="lbl">지하철 : </span>자양역 7호선
+                </p>
+            </li>
+
+            <!-- 유의사항 -->
+            <li class="info-item">
+                <img src="images/icon/Property 1=eye.png" alt="유의사항" class="info-icon">
+                <p class="info-text caution">
+                    유아 1명당 보호자 2명까지 입장 가능<br>
+                    다둥이 카드 소지자의 경우 자녀 3명까지 이용 가능<br>
+                    아동 1명당 1일 1회차만 이용 가능<br>
+                    미끄럼방지 양말 필수 착용(미착용시 입장 불가)<br>
+                    입장시간 30분 이후 오셔도 무조건 노쇼 처리<br>
+                    타인에게 2회 이상 피해를 줄 경우 퇴장 조치<br>
+                    입장 30분 전까지 예약 취소 가능<br>
+                    매월 이용 횟수 5회로 제한<br>
+                    음식물(물, 분유 제외) 반입 및 섭취 금지<br>
+                    시설 및 장난감 파손 시 동일한 물품으로 변상<br>
+                    발열, 기침, 전염성질환 감염자는 입장 불가<br>
+                    개인 소지품은 반드시 락커 및 바구니 보관
+                </p>
+            </li>
+
+        </ul>
+
+        <!-- 하단 액션 버튼 -->
+        <div class="detail-actions">
+            <button class="btn-reserve" onclick="location.href='book.html'">예약하기</button>
+            <button class="btn-share" aria-label="공유">
+                <img src="images/detail_page/icon-calendar.png" alt="공유">
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            const track = document.getElementById('slideTrack');
+            const dots  = document.getElementById('slideDots').querySelectorAll('.dot');
+            const total = 3;
+            let current = 0;
+            let startX  = 0;
+            let isDragging = false;
+
+            function goTo(idx) {
+                current = Math.max(0, Math.min(idx, total - 1));
+                track.style.transform = 'translateX(' + (-current * 400) + 'px)';
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+
+            track.addEventListener('touchstart', function (e) {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, { passive: true });
+
+            track.addEventListener('touchend', function (e) {
+                if (!isDragging) return;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+                isDragging = false;
+            }, { passive: true });
+
+            /* 마우스 드래그 (데스크톱 미리보기용) */
+            track.addEventListener('mousedown', function (e) {
+                startX = e.clientX;
+                isDragging = true;
+            });
+            track.addEventListener('mouseup', function (e) {
+                if (!isDragging) return;
+                const diff = startX - e.clientX;
+                if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+                isDragging = false;
+            });
+            track.addEventListener('mouseleave', function () { isDragging = false; });
+        })();
+    </script>
+</body>
+</html>

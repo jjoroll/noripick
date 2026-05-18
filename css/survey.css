@@ -1,0 +1,215 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pretendard", sans-serif;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+body {
+    width: 430px;
+    height: 931px;
+    margin: 0;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.survey-container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.btn-back {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-left: -5px;
+}
+
+.btn-skip {
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.survey-header {
+    margin-bottom: 40px;
+}
+
+.main-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.main-title .highlight {
+    color: #2F8EE0;
+}
+
+.sub-title {
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 40px; /* 큰 여백 */
+}
+
+/* Progress Indicator */
+.progress-container {
+    width: 100%;
+    height: 2px;
+    background-color: #f0f0f0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 33.33%;
+    background-color: #222;
+}
+
+/* Image Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.grid-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    aspect-ratio: 1 / 1;
+}
+
+.grid-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 2.1 / 1; /* 2칸 너비에 맞게 조절 */
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.grid-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+    pointer-events: none;
+    border-radius: 16px;
+}
+
+.grid-item.no-overlay::after {
+    display: none;
+}
+
+.grid-item .label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 0.7rem;
+    z-index: 2;
+}
+
+.grid-item .icon-star {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    z-index: 2;
+    transition: transform 0.2s;
+}
+
+/* Selected State */
+.grid-item.selected {
+    box-shadow: 0 0 0 2px #2F8EE0 inset;
+}
+
+.grid-item.selected .icon-star {
+    transform: scale(1.1); /* 선택 시 살짝 커지는 애니메이션 효과 */
+}
+
+.bottom-action {
+    margin-top: auto;
+    padding-bottom: 30px;
+}
+
+.btn-next {
+    width: 100%;
+    padding: 18px;
+    background-color: #2F8EE0;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    bottom: 100px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s, visibility 0.3s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 120px;
+}

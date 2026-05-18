@@ -1,0 +1,225 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pretendard", sans-serif;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+body {
+    width: 430px;
+    height: 931px;
+    margin: 0;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.signup-container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+}
+
+.signup-header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.main-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.main-title .highlight {
+    color: #2F8EE0;
+}
+
+.sub-title {
+    font-size: 0.95rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.signup-form {
+    flex-grow: 1;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.input-with-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-button input {
+    flex-grow: 1;
+    padding: 16px 14px;
+    padding-right: 95px; /* 버튼을 위한 여백 */
+    border: 1px solid #F0F0F0;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+}
+
+.input-with-button input:focus,
+.form-group > input:focus {
+    border-color: #2F8EE0;
+}
+
+.input-with-button input::placeholder,
+.form-group > input::placeholder {
+    color: #999;
+    font-weight: 500;
+}
+
+.btn-verify {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.form-group > input {
+    width: 100%;
+    padding: 16px 14px;
+    border: 1px solid #F0F0F0;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+}
+
+.bottom-action {
+    margin-top: auto;
+    padding-bottom: 30px;
+}
+
+.btn-next {
+    width: 100%;
+    padding: 18px;
+    background-color: #2F8EE0;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* 추가: 자녀 정보 입력 화면 스타일 */
+.top-nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* 기존 header의 margin-top을 줄이기 위해 */
+}
+
+.btn-back {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-left: -5px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    flex-grow: 1;
+    padding: 16px 14px;
+    padding-right: 50px;
+    border: 1px solid #F0F0F0;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+}
+
+.input-with-icon input:focus {
+    border-color: #2F8EE0;
+}
+
+.input-with-icon input::placeholder {
+    color: #999;
+    font-weight: 500;
+}
+
+.icon-calendar {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* 아이콘 클릭 무시 */
+}
+
+.segment-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-segment {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: #F2F4F7;
+    color: #666;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-segment.active {
+    background-color: #2F8EE0;
+    color: #fff;
+    font-weight: 600;
+}

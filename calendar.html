@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 예약</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+    <div class="phone-wrap">
+        <div class="phone-scroll">
+
+            <!-- 전체 페이지 이미지 (개인 / 단체 전환) -->
+            <div class="page-content">
+                <img
+                    src="images/reservve/reserve.jpg"
+                    id="pageImg"
+                    class="page-img"
+                    alt="예약하기 페이지"
+                    draggable="false"
+                >
+
+                <!--
+                    개인/단체 탭 버튼 오버레이
+                    Figma Y 계산:
+                      frame padding-top 92 + div-title 144
+                      + gap 20 + div-con01 663 + gap 20 = 939px
+                    X: frame에서 30px (15px padding + 15px 여백)
+                    W: 370px (각 버튼 182.5px + gap 5px)
+                    H: 50px (디자인 기준)
+                -->
+                <div class="tab-overlay">
+                    <button
+                        class="tab-btn active"
+                        id="tabIndiv"
+                        onclick="switchTab('reserve')"
+                    >개인</button>
+                    <button
+                        class="tab-btn"
+                        id="tabGroup"
+                        onclick="switchTab('organization')"
+                    >단체</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function switchTab(type) {
+            var img   = document.getElementById('pageImg');
+            var indiv = document.getElementById('tabIndiv');
+            var group = document.getElementById('tabGroup');
+
+            if (type === 'reserve') {
+                img.src = 'images/reservve/reserve.jpg';
+                indiv.classList.add('active');
+                group.classList.remove('active');
+            } else {
+                img.src = 'images/reservve/reservation-organization.jpg';
+                group.classList.add('active');
+                indiv.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

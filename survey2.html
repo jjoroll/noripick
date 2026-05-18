@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 놀이 취향 조사</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/survey.css">
+</head>
+<body>
+    <div class="survey-container">
+        <!-- 상단 네비게이션: 뒤로가기 & 건너뛰기 -->
+        <nav class="top-nav">
+            <button class="btn-back" type="button" aria-label="뒤로가기" onclick="history.back()">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="btn-skip" type="button" onclick="location.href='home.html'">건너뛰기</button>
+        </nav>
+
+        <!-- 헤더 및 진행 바 -->
+        <header class="survey-header">
+            <h1 class="main-title">
+                이*젠님 자녀분의<br>
+                <span class="highlight">놀이 취향</span>을 알고 싶어요
+            </h1>
+            <p class="sub-title">최대 3개까지 선택이 가능합니다.</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 33.33%; margin-left: 33.33%;"></div>
+            </div>
+        </header>
+
+        <!-- 이미지 그리드 선택 -->
+        <div class="grid-container" id="surveyGrid">
+            <!-- Row 1 -->
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/jonghoon_Small_Korean_girl_2-3_years_old_sliding_down_a_tall__433930b9-256b-4d4b-a692-8f129488b009_3.png" alt="미끄럼틀">
+                <span class="label">미끄럼틀</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/jonghoon_a_little_korean_girl_playing_in_the_yellow_ball_pool_89aa17ac-8e66-42ce-8eb9-448d1fbd1d22_0.png" alt="볼풀장">
+                <span class="label">볼풀장</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/li-lego.png" alt="블록놀이">
+                <span class="label">블록놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+
+            <!-- Row 2 -->
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/li-stone.png" alt="암벽타기">
+                <span class="label">암벽타기</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/jonghoon_a_pink_bucket_and_red_shovel_on_the_beach_surrounded_b6312c2e-9b4a-4b0d-9af4-87816e992f85_3.png" alt="모래놀이">
+                <span class="label">모래놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/jonghoon_a_photorealistic_image_of_a_Korean_kid_with_unfolding__bcfd4ae9-53e3-4be8-89c1-a4c45317e7b7.png" alt="트램펄린">
+                <span class="label">트램펄린</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+
+            <!-- Row 3 -->
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/jonghoon_A_futuristic_indoor_play_zone_for_Korean_kid_featuri_cd3b3017-a7d0-435c-900c-8891e8200408_2.png" alt="디지털">
+                <span class="label">디지털</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/li-read.png" alt="책읽기">
+                <span class="label">책읽기</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/li-kitchen.png" alt="주방놀이">
+                <span class="label">주방놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+
+            <!-- Row 4 -->
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/image 111.png" alt="드로잉">
+                <span class="label">음악놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey02/image 88.png" alt="음악놀이">
+                <span class="label">미술놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+        </div>
+
+        <div class="bottom-action">
+            <button class="btn-next" type="button" onclick="location.href='survey3.html'">다음</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">최대 3개까지만 선택할 수 있습니다.</div>
+
+    <script>
+        const MAX_SELECTION = 3;
+
+        function toggleSelect(element) {
+            const isSelected = element.classList.contains('selected');
+            const currentSelectedCount = document.querySelectorAll('.grid-item.selected').length;
+            
+            if (!isSelected && currentSelectedCount >= MAX_SELECTION) {
+                showToast();
+                return;
+            }
+            
+            element.classList.toggle('selected');
+            const star = element.querySelector('.icon-star');
+            if (element.classList.contains('selected')) {
+                star.src = 'images/icon/pick01.png';
+            } else {
+                star.src = 'images/icon/pick.png';
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "toast show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+</html>

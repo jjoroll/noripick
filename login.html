@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - Login</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <img src="images/logo/white-vertical.png" alt="nori Pick logo" style="width: 100px; height: auto;">
+        </div>
+
+        <div class="login-form">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="아이디" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="비밀번호" required>
+            </div>
+            
+            <button class="btn-login" type="button" onclick="location.href='home.html'">Sign-in</button>
+            
+            <div class="social-login">
+                <button class="btn-social btn-kakao" aria-label="Kakao Login" onclick="location.href='home.html'">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                        <path d="M12 3C6.477 3 2 6.556 2 10.942c0 2.825 1.83 5.304 4.606 6.72l-1.018 3.738c-.048.175.148.307.294.198l4.286-2.836c.594.08 1.206.122 1.832.122 5.523 0 10-3.556 10-7.942S17.523 3 12 3z"/>
+                    </svg>
+                </button>
+                <button class="btn-social btn-naver" aria-label="Naver Login" onclick="location.href='home.html'">
+                    <span style="font-weight: 900; font-family: Arial, sans-serif; font-size: 18px;">N</span>
+                </button>
+            </div>
+
+            <div class="signup-link">
+                노리픽 이용이 처음이신가요? <a href="signup.html">회원가입</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

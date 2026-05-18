@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #111111;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── 컨테이너 ── */
+.scan-container {
+    width: 430px;
+    height: 931px;
+    position: relative;
+    overflow: hidden;
+    background: #1A1A1A;
+}
+
+/* ── 전체 배경 이미지 (카메라 뷰 + 어두운 오버레이) ── */
+.scan-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 430px;
+    height: 931px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── 닫기 버튼 Figma 패턴 x:47, y:92 ── */
+.btn-close {
+    position: absolute;
+    top: 92px;
+    left: 47px;
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-close img {
+    width: 31px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* ── 안내 텍스트 ── */
+/* 스캔 박스 상단(295px) 기준, 30px 위 = 265px에서 line-height 고려 */
+.scan-label {
+    position: absolute;
+    top: 258px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #ffffff;
+    letter-spacing: -0.2px;
+    z-index: 10;
+}
+
+/* ── 스캔 박스 Figma: 278×278px, 가로 중앙 정렬 ── */
+/* (430 - 278) / 2 = 76px */
+.scan-box {
+    position: absolute;
+    top: 290px;
+    left: 76px;
+    width: 278px;
+    height: 278px;
+    z-index: 10;
+}
+
+.scan-frame {
+    width: 278px;
+    height: 278px;
+    display: block;
+    object-fit: contain;
+}

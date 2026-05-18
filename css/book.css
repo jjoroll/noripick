@@ -1,0 +1,666 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── 컨테이너 ── */
+.book-container {
+    width: 430px;
+    height: 931px;
+    background: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── 뒤로가기 버튼 x:30, y:78 ── */
+.btn-back {
+    position: absolute;
+    top: 78px;
+    left: 30px;
+    z-index: 20;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.btn-back img {
+    width: 31px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* ── 스크롤 영역 ── */
+.book-inner {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 127px 30px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.book-inner::-webkit-scrollbar { display: none; }
+
+/* ── 제목 블록 ── */
+.title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    flex-shrink: 0;
+}
+.page-title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1F1F1F;
+    letter-spacing: -0.4px;
+}
+.title-hr {
+    width: 100%;
+    height: 1px;
+    background: #EDF4FA;
+}
+
+/* ── 날짜 토글 행 ── */
+.date-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+.date-text {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1F1F1F;
+    letter-spacing: -0.4px;
+}
+.btn-cal-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.icon-chevron {
+    font-size: 20px;
+    color: #1F1F1F;
+    line-height: 1;
+}
+
+/* ── 캘린더 박스 ── */
+.cal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 32px 30px 33px;
+    background: #F8F8F8;
+    border: 1px solid #EDF4FA;
+    border-radius: 30px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* ── 월 네비게이션 ── */
+.cal-month-nav {
+    display: flex;
+    align-items: center;
+    gap: 115px;
+    flex-shrink: 0;
+}
+.btn-month {
+    width: 15px;
+    height: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.btn-prev {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 8px solid #7E7E7E;
+    width: 8px;
+    height: 0;
+}
+.btn-next {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid #7E7E7E;
+    width: 8px;
+    height: 0;
+}
+.cal-month-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1F1F1F;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+}
+
+/* ── 날짜 그리드 ── */
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 30px;
+    width: 100%;
+    flex-shrink: 0;
+}
+.cal-day {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #1F1F1F;
+    text-align: center;
+}
+.cal-day.sun, .cal-day.sat { color: #BB4A00; }
+
+.cal-date {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #1F1F1F;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15px;
+}
+.cal-date.prev { color: #B4B4B4; }
+.cal-date.sun  { color: #BB4A00; }
+.cal-date.sat  { color: #BB4A00; }
+.cal-date.selected { color: #ffffff; z-index: 1; }
+.cal-date.selected::before {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: #2F8EE0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* ── 시간대 테이블 ── */
+.time-table-wrap { flex-shrink: 0; }
+.time-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.time-table th {
+    font-size: 12px;
+    font-weight: 500;
+    color: #7E7E7E;
+    text-align: center;
+    padding: 12px 0;
+    background: #F8F8F8;
+    border-bottom: 1px solid #EDF4FA;
+    letter-spacing: -0.1px;
+}
+.time-table td {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    text-align: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #EDF4FA;
+    letter-spacing: -0.1px;
+}
+.time-table td:nth-child(2) { font-size: 12px; }
+.btn-select {
+    background: #2F8EE0;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: -0.1px;
+}
+.btn-select:active { background: #2579c3; }
+
+/* ── 탭 버튼 ── */
+.tab-row {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+.tab-btn {
+    flex: 1;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.18s, color 0.18s;
+}
+.tab-btn.active        { background: #2F8EE0; color: #ffffff; }
+.tab-btn:not(.active)  { background: #F3F3F3; color: #7E7E7E; }
+
+/* ── 폼 섹션 공통 ── */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
+}
+.section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F1F1F;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+}
+.section-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+    line-height: 1.6;
+}
+
+/* ── 인원 카운트 버튼 ── */
+.count-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.count-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border-radius: 50px;
+    border: 1px solid #D9D9D9;
+    background: #ffffff;
+    cursor: pointer;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+.count-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #D9D9D9;
+    background: transparent;
+    flex-shrink: 0;
+}
+.count-dot.active {
+    background: #2F8EE0;
+    border-color: #2F8EE0;
+}
+.count-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+}
+.count-btn.active .count-label {
+    color: #1F1F1F;
+    font-weight: 500;
+}
+
+/* ── 아동 블록 ── */
+.child-block {
+    border: 1px solid #EDF4FA;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.child-header {
+    background: #2F8EE0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    letter-spacing: -0.2px;
+}
+.child-row {
+    display: flex;
+    align-items: center;
+    padding: 13px 18px;
+    border-top: 1px solid #EDF4FA;
+    gap: 10px;
+}
+.child-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #7E7E7E;
+    width: 30px;
+    flex-shrink: 0;
+    letter-spacing: -0.1px;
+}
+.child-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+}
+.child-value.name-val { flex: 1; }
+.child-value.dropdown { color: #1F1F1F; }
+
+/* ── 성별 토글 ── */
+.gender-group {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+.gender-btn {
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 1px solid #D9D9D9;
+    background: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    color: #7E7E7E;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.gender-btn.active {
+    background: #2F8EE0;
+    border-color: #2F8EE0;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* ── 출생 행 ── */
+.birth-row { gap: 8px; }
+.care-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+.care-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+    white-space: nowrap;
+}
+
+/* ── 토글 스위치 ── */
+.toggle-sw {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    border-radius: 50px;
+    background: #D9D9D9;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+.toggle-sw::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+}
+.toggle-sw.on { background: #2F8EE0; }
+.toggle-sw.on::after { transform: translateX(18px); }
+
+/* ── 아동 추가 버튼 ── */
+.btn-add {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid #D9D9D9;
+    background: #ffffff;
+    font-size: 24px;
+    color: #7E7E7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    align-self: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── 동의 행 ── */
+.consent-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 10px;
+}
+.consent-label {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+    line-height: 1.6;
+}
+
+/* ── 개인정보 박스 ── */
+.privacy-box {
+    background: #F8F8F8;
+    border-radius: 15px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.privacy-heading {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+    margin-bottom: 6px;
+}
+.privacy-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.privacy-list li {
+    font-size: 11px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+    line-height: 1.6;
+    padding-left: 10px;
+    position: relative;
+}
+.privacy-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+}
+.privacy-consent {
+    border-top: 1px solid #EDF4FA;
+    margin-top: 14px;
+    padding-top: 14px;
+}
+
+/* ── 이용규정 박스 ── */
+.terms-box {
+    background: #F8F8F8;
+    border-radius: 15px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.terms-intro {
+    font-size: 11px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+    line-height: 1.6;
+}
+.terms-list {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.terms-list li {
+    font-size: 11px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.1px;
+    line-height: 1.6;
+}
+
+/* ── 최종 동의 ── */
+.final-consent {
+    padding-top: 5px;
+}
+
+/* ═══════════════════════════════════════
+   단체 탭 전용 스타일
+   ═══════════════════════════════════════ */
+
+/* 대표 보호자 블록 */
+.guardian-block {
+    border: 1px solid #EDF4FA;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.guardian-row {
+    display: flex;
+    align-items: center;
+    padding: 13px 18px;
+    border-top: 1px solid #EDF4FA;
+    gap: 10px;
+}
+.guardian-row:first-child { border-top: none; }
+
+.guardian-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #7E7E7E;
+    width: 30px;
+    flex-shrink: 0;
+    letter-spacing: -0.1px;
+}
+.guardian-value {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    flex: 1;
+    letter-spacing: -0.1px;
+}
+
+/* 드롭다운 스타일 필드 */
+.g-dropdown {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+    background: #F8F8F8;
+    border: 1px solid #EDF4FA;
+    border-radius: 8px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+/* 기관명 서브 행 */
+.institution-row {
+    padding-left: 58px;
+}
+.institution-name {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+}
+
+/* 전화 그룹 */
+.phone-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.phone-num {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1F1F1F;
+    letter-spacing: -0.1px;
+    background: #F8F8F8;
+    border: 1px solid #EDF4FA;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+/* 전화 2행 (레이블 없이 들여쓰기) */
+.phone2-row { padding-left: 58px; }
+
+/* 동반 보호자 수 단순 표시 행 (단체용) */
+.guardian-count-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #EDF4FA;
+}
+.guardian-count-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1F1F1F;
+    letter-spacing: -0.3px;
+}
+.guardian-count-val {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7E7E7E;
+    letter-spacing: -0.2px;
+}
+
+/* ── 예약하기 버튼 ── */
+.btn-reserve {
+    width: 100%;
+    height: 60px;
+    background: #2F8EE0;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: -0.3px;
+    flex-shrink: 0;
+}
+.btn-reserve:active { background: #2579c3; }

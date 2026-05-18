@@ -1,0 +1,868 @@
+/* home.css */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+}
+
+.home-container {
+    width: 430px;
+    min-height: 931px;
+    background-color: #fff;
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 112px; /* bottom-nav(72px) + margin(20px) + extra(20px) */
+}
+
+/* ══════════════════════════════════
+   HERO  (430 × 931 px 기준)
+══════════════════════════════════ */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 931px;
+    overflow: hidden;
+}
+
+/* 슬라이드 배경 */
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center top;
+    opacity: 0;
+    transition: opacity 0.85s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+/* 그라디언트 오버레이 */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.28) 0%,
+        rgba(0,0,0,0)    25%,
+        rgba(0,0,0,0)    52%,
+        rgba(0,0,0,0.45) 75%,
+        rgba(0,0,0,0.70) 100%
+    );
+    z-index: 1;
+}
+
+/* ── 헤더 ── */
+.home-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Figma: span-logo top=77px → header padding-top=77px */
+    padding: 77px 29px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+/* 로고 이미지 */
+.logo-img {
+    height: 20px;
+    width: auto;
+    display: block;
+}
+/* 헤더 우측 아이콘 — Figma: bell right=351px, hamburger left=381px → gap=30px */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.hdr-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+/* 알림 뱃지 (빨간 점) */
+.bell-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 6px;
+    background: #ff4444;
+    border-radius: 50%;
+}
+
+/* ── 알림 말풍선 ── */
+@keyframes notiBubble {
+    0%   { opacity: 0; }
+    15%  { opacity: 1; }
+    70%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.noti-bubble {
+    position: absolute;
+    top: 105px;
+    right: 75px;
+    height: 45px;
+    background-image: url('../images/home/bell-box.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    animation: notiBubble 3s ease 1s forwards;
+}
+
+/* ── 슬라이드 텍스트 ──
+   Figma: div-center top=541px from hero, left=108px (centered in 430px)
+   텍스트 박스 w=204px, h=84px (h2) + 25px (subtag) */
+.hero-texts {
+    position: absolute;
+    top: 500px;
+    left: 113px;          /* h2-mainTit 실제 left */
+    width: 220px;
+    z-index: 5;
+}
+.hero-text { display: none; color: #fff; text-align: center; }
+.hero-text.active { display: block; }
+
+/* h2: 84px 높이 / 2줄 / line-height 1.4 → font-size≈30px */
+.hero-text h2 {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+    margin: 0 0 20px;
+}
+/* 서브태그: "체험형 키즈카페 기획전" */
+.hero-subtag {
+    font-size: 12px;
+    font-weight: 200;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.2px;
+    margin: 0;
+}
+
+/* ── 진행 표시 01 ——— 05 ──
+   Figma: div-icon top=823px, left=29px, w=371px */
+.hero-progress {
+    position: absolute;
+    top: 650px;              /* div-scrollSide top ≈ 720px */
+    left: 113px;
+    right: 113px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+}
+.progress-current {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 16px;
+    letter-spacing: 0.2px;
+}
+.progress-total {
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    font-weight: 500;
+    min-width: 16px;
+    letter-spacing: 0.2px;
+}
+.progress-track {
+    flex: 1;
+    height: 1.5px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    width: 20%;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.6s ease;
+}
+
+/* ── SCROLL 텍스트 ──
+   Figma: div-scrollDown top=729px, left=184px (center≈215px) */
+.hero-scroll {
+    position: absolute;
+    top: 690px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255,255,255,0.75);
+    font-size: 10px;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    z-index: 5;
+}
+
+/* ── Bottom Navigation ──
+   Figma: div-icon top=823px, left=29px, w=371px, h=78px */
+.bottom-nav {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 371px;
+    height: 72px;
+    background: rgba(16,16,16,0.90);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 36px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+.nav-item {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px 14px;
+    transition: color 0.2s;
+}
+.nav-item.active { color: #fff; }
+.nav-item:hover  { color: rgba(255,255,255,0.85); }
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.5;
+}
+.nav-item.active .nav-icon { opacity: 1; }
+
+/* Common Section Styles */
+.section {
+    padding: 80px 0 0 0;
+}
+
+.section-header {
+    padding: 0 24px;
+    margin-bottom: 20px;
+    color:#666;
+}
+
+.section-subtitle {
+    font-size: 1.0rem;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Horizontal Scroll Container */
+.h-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 24px 0px 24px;
+    gap: 8px;
+    scrollbar-width: none; /* Firefox */
+}
+.h-scroll::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Tags Filter */
+.tags-filter {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 24px 16px 24px;
+    scrollbar-width: none;
+    gap: 4px;
+}
+.tags-filter::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-tag {
+    
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #2F8EE0;
+    white-space: nowrap;
+    background: #EDF4FA;
+}
+.filter-tag.active {
+    background-color: #2F8EE0;
+    color: #fff;
+    border-color: #2F8EE0;
+}
+
+/* 큐레이션 조사 결과 태그: 표시 전용, 클릭 불가 */
+.survey-tags .filter-tag {
+    cursor: default;
+    pointer-events: none;
+    background: #EDF4FA;
+    color: #2F8EE0;
+    border-color: #e0e0e0;
+}
+.survey-tags .filter-tag.active {
+    background: #EDF4FA;
+    color: #2F8EE0;
+    border-color: #e0e0e0;
+}
+
+/* 랭킹 필터 태그: 클릭 가능 */
+.ranking .filter-tag {
+    cursor: pointer;
+}
+
+/* Curation subtitle 강조 */
+.curation-subtitle {
+    color: #2F8EE0 !important;
+    font-weight: 500;
+}
+
+/* Li Cards (추천 큐레이션 슬라이드) */
+.li-card {
+    min-width: 185px;
+    width: 240px;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+.li-card-img {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.li-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(99, 99, 99, 0.35);
+}
+.li-pick-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0;
+    opacity: 1;
+    transition: transform 0.15s ease;
+}
+.li-pick-btn:active { transform: scale(0.85); }
+.li-pick-btn .pick-icon { transition: opacity 0.15s; }
+.li-pick-btn:active .pick-icon { opacity: 0.7; }
+.li-card-body {
+    position: relative;
+    z-index: 2;
+    padding: 0 16px;
+    color: #fff;
+    text-align: center;
+    margin-top: 200px;
+}
+.li-card-name {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+.li-card-loc {
+    font-size: 0.78rem;
+    font-weight: 200;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+.li-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+}
+.li-card-tag {
+    font-size: 0.72rem;
+    font-weight: 200;
+    padding: 8px 12px;
+    background: rgba(30, 30, 30, 0.75);
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* (legacy) Curation Cards */
+.curation-card {
+    min-width: 160px;
+    width: 160px;
+}
+.curation-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.curation-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.curation-tags {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+.curation-tag {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    color: #666;
+}
+.curation-meta {
+    font-size: 0.75rem;
+    color: #888;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Ranking Section */
+.ranking .ranking-list {
+    border-top: 1px solid #efefef;
+    margin: 0 20px;
+    padding: 0;
+}
+.ranking-header-top {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+}
+.ranking-age-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2F8EE0;
+}
+.ranking-age-btn {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    
+}
+
+.ranking-list {
+    padding: 0 24px;
+    
+}
+.rk-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+.rk-item-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 18px 0;
+}
+.rk-num {
+    font-size: 2 rem;
+    font-weight: 500;
+    color: #aaa;
+    min-width: 24px;
+}
+.rk-title {
+    flex: 1;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #111;
+}
+.rk-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+.rk-item-body {
+    display: none;
+    padding-bottom: 16px;
+}
+.rk-item.expanded .rk-item-body {
+    display: block;
+}
+.rk-item-body > img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 5px;
+}
+.rk-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 2px;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.rk-info-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 8px;
+    gap: 12px;
+    background: #f8f8f8;
+}
+.rk-info-cell img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: invert(42%) sepia(93%) saturate(400%) hue-rotate(185deg) brightness(95%) contrast(90%);
+}
+.rk-info-cell span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #111;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Promo Banner */
+.promo-banner {
+    height: 150px;
+    margin: 60px 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2b3a4a, #1a2530);
+    color: #fff;
+    padding: 24px 24px 24px 28px;
+    position: relative;
+}
+.promo-deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.promo-banner h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 0.85rem;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-bottom: 6px;
+    margin-top: 20px;
+}
+.promo-banner h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 1.0rem;
+    font-weight: 500;
+}
+.promo-page {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(10, 10, 10, 0.75);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+}
+.promo-badge {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 110px;
+    width: auto;
+    object-fit: contain;
+    z-index: 1;
+}
+
+/* News Section */
+.news-card {
+    margin: 0 24px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.news-content {
+    padding: 16px;
+}
+.news-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.news-desc {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Review Section */
+.review-card {
+    min-width: 240px;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    padding: 20px;
+}
+.review-quote {
+    color: #ddd;
+    font-size: 2rem;
+    font-family: serif;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.review-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: #444;
+}
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.review-user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.review-user-info {
+    display: flex;
+    flex-direction: column;
+}
+.review-user-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.review-user-date {
+    font-size: 0.7rem;
+    color: #888;
+}
+
+/* ═══════════════════════════════════════
+   PROGRAM 섹션
+   ═══════════════════════════════════════ */
+
+/* 섹션 전체: 좌우 15px 여백, 상 30px / 하 30px */
+.program-section {
+    padding: 30px 15px 30px;
+}
+
+/* 헤더 행: 제목 왼쪽 + 화살표 오른쪽 */
+.program-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+.program-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* "배우면서 놀아 보아요" */
+.program-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: #2F8EE0;
+    letter-spacing: -0.2px;
+    line-height: 1;
+    margin-bottom: 8px;
+    margin-top: 60px;
+}
+
+/* "PROGRAM" */
+.program-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+/* → 화살표 버튼 */
+.program-arrow-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    flex-shrink: 0;
+}
+.program-arrow-btn img {
+    width: 24px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* 카드 두 장 컨테이너 */
+.program-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+/* 개별 카드: 이미지 비율 유지 (183-184 × 266px) */
+.program-card {
+    flex: 1;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 300px;
+}
+
+/* 카드 배경 이미지 */
+.program-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 카드 오버레이: 카드 전체에 그라디언트 → 텍스트·버튼 영역 자연스럽게 연결 */
+.program-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(
+        to bottom,
+        transparent 25%,
+        rgba(0, 0, 0, 0.45) 55%,
+        rgba(0, 0, 0, 0.68) 100%
+    );
+}
+
+/* 텍스트 영역 — 그라디언트는 오버레이에서 담당하므로 배경 제거 */
+.program-card-body {
+    padding: 40px 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* 카드 프로그램 제목: HEALTH EXERCISE / ENGLISH PLAY·STUDY */
+.program-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+
+/* 카드 설명 텍스트 */
+.program-card-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+}
+
+/* 위치 버튼 (카드 최하단) — 어두운 반투명 + 좌우·하단 여백 + 둥근 모서리 */
+.program-location-btn {
+    position: relative;
+    /* width: 100% 제거 → flex 컬럼에서 margin이 적용된 너비로 자동 결정 */
+    height: 46px;
+    background: rgba(60, 60, 60, 0.80);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    flex-shrink: 0;
+    margin: 0 10px 10px;   /* 좌우 10px, 하단 10px 여백 */
+}
+/* 우측 › 화살표 */
+.program-location-btn::after {
+    content: '›';
+    position: absolute;
+    right: 14px;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+    opacity: 0.9;
+}

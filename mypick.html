@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - My Pick</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/mypick.css">
+</head>
+<body>
+    <div class="pick-container">
+
+        <!-- 뒤로가기 버튼 (고정) -->
+        <button class="btn-back" aria-label="뒤로가기" onclick="history.back()">
+            <img src="images/my_pick/arrow.png" alt="뒤로가기">
+        </button>
+
+        <!-- 스크롤 영역 -->
+        <div class="pick-inner">
+
+            <!-- 제목 -->
+            <h2 class="pick-heading"><span class="blue">이젠</span>님,<br>Pick한 장소</h2>
+
+            <!-- 카테고리 탭 -->
+            <div class="pick-category">
+                <ul class="category-list">
+                    <li class="cat-item active">전체</li>
+                    <li class="cat-item">모험</li>
+                    <li class="cat-item">체험</li>
+                    <li class="cat-item">오감</li>
+                    <li class="cat-item">성장</li>
+                </ul>
+                <img src="images/my_pick/border.png" alt="" class="cat-border" aria-hidden="true">
+            </div>
+
+            <!-- 카드 목록 -->
+            <div class="pick-cards">
+
+                <!-- 카드 1 -->
+                <div class="pick-card-block" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="pick-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                        <div class="card-text">
+                            <div class="card-title-block">
+                                <h3 class="card-name">서리풀 노리학교</h3>
+                                <p class="card-sub">숲속의 아름자운 자연을 만끽하는 체험형 키즈카페</p>
+                            </div>
+                            <div class="card-review">
+                                <img src="images/my_pick/5star.png" alt="별점 5점" class="star-img">
+                                <span class="review-text">(117) · PICK 8,889</span>
+                            </div>
+                            <p class="card-location">서초구 양재동</p>
+                        </div>
+                        <div class="card-img-wrap">
+                            <img src="images/my_pick/img01.png" alt="서리풀 노리학교" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-divider"></div>
+                </div>
+
+                <!-- 카드 2 -->
+                <div class="pick-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="card-text">
+                        <div class="card-title-block">
+                            <h3 class="card-name">혜명 아이들 상상놀이터</h3>
+                            <p class="card-sub">다채로운 문화예술 프로그램을 즐기는 오감형 키즈카페</p>
+                        </div>
+                        <div class="card-review">
+                            <img src="images/my_pick/5star.png" alt="별점 5점" class="star-img">
+                            <span class="review-text">(117) · PICK 8,889</span>
+                        </div>
+                        <p class="card-location">서초구 양재동</p>
+                    </div>
+                    <div class="card-img-wrap">
+                        <img src="images/my_pick/img02.png" alt="혜명 아이들 상상놀이터" class="card-img">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

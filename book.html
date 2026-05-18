@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 예약</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/book.css">
+</head>
+<body>
+<div class="book-container">
+
+    <button class="btn-back" aria-label="뒤로" onclick="history.back()">
+        <img src="images/coupon/arrow.png" alt="뒤로">
+    </button>
+
+    <div class="book-inner">
+
+        <!-- 제목 -->
+        <div class="title-block">
+            <h1 class="page-title">시립 뚝섬자벌레점</h1>
+            <div class="title-hr"></div>
+        </div>
+
+        <!-- 날짜 토글 -->
+        <div class="date-row">
+            <span class="date-text">2026.5.22</span>
+            <button class="btn-cal-toggle" aria-label="캘린더 열기/닫기">
+                <span class="icon-chevron">&#8963;</span>
+            </button>
+        </div>
+
+        <!-- 캘린더 박스 -->
+        <div class="cal-box">
+            <div class="cal-month-nav">
+                <button class="btn-month btn-prev" aria-label="이전 달"></button>
+                <span class="cal-month-label">05. 2026</span>
+                <button class="btn-month btn-next" aria-label="다음 달"></button>
+            </div>
+            <div class="cal-grid">
+                <span class="cal-day sun">일</span>
+                <span class="cal-day">월</span>
+                <span class="cal-day">화</span>
+                <span class="cal-day">수</span>
+                <span class="cal-day">목</span>
+                <span class="cal-day">금</span>
+                <span class="cal-day sat">토</span>
+                <!-- 1주: 5월1일=금 -->
+                <span class="cal-date prev sun">26</span>
+                <span class="cal-date prev">27</span>
+                <span class="cal-date prev">28</span>
+                <span class="cal-date prev">29</span>
+                <span class="cal-date prev">30</span>
+                <span class="cal-date">1</span>
+                <span class="cal-date sat">2</span>
+                <!-- 2주 -->
+                <span class="cal-date sun">3</span>
+                <span class="cal-date">4</span>
+                <span class="cal-date">5</span>
+                <span class="cal-date">6</span>
+                <span class="cal-date">7</span>
+                <span class="cal-date">8</span>
+                <span class="cal-date sat">9</span>
+                <!-- 3주 -->
+                <span class="cal-date sun">10</span>
+                <span class="cal-date">11</span>
+                <span class="cal-date">12</span>
+                <span class="cal-date">13</span>
+                <span class="cal-date">14</span>
+                <span class="cal-date">15</span>
+                <span class="cal-date sat">16</span>
+                <!-- 4주 -->
+                <span class="cal-date sun">17</span>
+                <span class="cal-date">18</span>
+                <span class="cal-date">19</span>
+                <span class="cal-date">20</span>
+                <span class="cal-date">21</span>
+                <span class="cal-date selected">22</span>
+                <span class="cal-date sat">23</span>
+                <!-- 5주 -->
+                <span class="cal-date sun">24</span>
+                <span class="cal-date">25</span>
+                <span class="cal-date">26</span>
+                <span class="cal-date">27</span>
+                <span class="cal-date">28</span>
+                <span class="cal-date">29</span>
+                <span class="cal-date sat">30</span>
+                <!-- 6주 -->
+                <span class="cal-date sun">31</span>
+            </div>
+        </div>
+
+        <!-- 시간대 테이블 -->
+        <div class="time-table-wrap">
+            <table class="time-table">
+                <thead>
+                    <tr>
+                        <th>회차</th>
+                        <th>시간</th>
+                        <th>정원</th>
+                        <th>돌봄</th>
+                        <th>신청</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1회차</td>
+                        <td>09:10 - 11:00</td>
+                        <td>31명</td>
+                        <td>4명</td>
+                        <td><button class="btn-select">선택</button></td>
+                    </tr>
+                    <tr>
+                        <td>2회차</td>
+                        <td>11:10 - 13:00</td>
+                        <td>28명</td>
+                        <td>4명</td>
+                        <td><button class="btn-select">선택</button></td>
+                    </tr>
+                    <tr>
+                        <td>3회차</td>
+                        <td>14:00 - 15:50</td>
+                        <td>26명</td>
+                        <td>4명</td>
+                        <td><button class="btn-select">선택</button></td>
+                    </tr>
+                    <tr>
+                        <td>4회차</td>
+                        <td>16:00 - 17:50</td>
+                        <td>31명</td>
+                        <td>4명</td>
+                        <td><button class="btn-select">선택</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 개인 / 단체 탭 -->
+        <div class="tab-row">
+            <button class="tab-btn active" id="tabIndiv" onclick="switchBookTab('indiv')">개인</button>
+            <button class="tab-btn" id="tabGroup" onclick="switchBookTab('group')">단체</button>
+        </div>
+
+        <!-- ── 개인 전용 콘텐츠 ── -->
+        <div id="sect-indiv">
+
+            <!-- 이용 아동 수 -->
+            <div class="form-section">
+                <div class="section-head">
+                    <h3 class="section-title">이용 아동 수</h3>
+                    <p class="section-sub">최대 돌봄 아동 수는 3명입니다</p>
+                </div>
+                <div class="count-row">
+                    <button class="count-btn">
+                        <span class="count-dot"></span>
+                        <span class="count-label">1명</span>
+                    </button>
+                    <button class="count-btn active">
+                        <span class="count-dot active"></span>
+                        <span class="count-label">2명</span>
+                    </button>
+                    <button class="count-btn">
+                        <span class="count-dot"></span>
+                        <span class="count-label">3명</span>
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- /sect-indiv -->
+
+        <!-- ── 단체 전용 콘텐츠 ── -->
+        <div id="sect-group" style="display:none;">
+
+            <!-- 대표 보호자 정보 -->
+            <div class="form-section">
+                <h3 class="section-title">대표 보호자 정보</h3>
+                <div class="guardian-block">
+                    <!-- 이름 -->
+                    <div class="guardian-row">
+                        <span class="guardian-label">이름</span>
+                        <span class="guardian-value">이*준</span>
+                    </div>
+                    <!-- 기관 -->
+                    <div class="guardian-row">
+                        <span class="guardian-label">기관</span>
+                        <span class="g-dropdown">서초구 &#9660;</span>
+                        <span class="g-dropdown">반포1동 &#9660;</span>
+                    </div>
+                    <!-- 기관명 (선택 결과) -->
+                    <div class="guardian-row institution-row">
+                        <span class="institution-name">이벤 어린이집</span>
+                    </div>
+                    <!-- 전화 1행 -->
+                    <div class="guardian-row">
+                        <span class="guardian-label">전화</span>
+                        <div class="phone-group">
+                            <span class="g-dropdown">010 &#9660;</span>
+                            <span class="phone-num">1234</span>
+                            <span class="phone-num">5678</span>
+                        </div>
+                    </div>
+                    <!-- 전화 2행 -->
+                    <div class="guardian-row phone2-row">
+                        <div class="phone-group">
+                            <span class="g-dropdown">02 &#9660;</span>
+                            <span class="phone-num">123</span>
+                            <span class="phone-num">4567</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 동반 보호자 수 (단체용 간단 표시) -->
+            <div class="form-section">
+                <div class="guardian-count-row">
+                    <span class="guardian-count-label">동반 보호자 수</span>
+                    <span class="guardian-count-val">명</span>
+                </div>
+            </div>
+
+        </div><!-- /sect-group -->
+
+        <!-- 이용 아동 정보 -->
+        <div class="form-section">
+            <h3 class="section-title">이용 아동 정보</h3>
+
+            <!-- 아동 1 -->
+            <div class="child-block">
+                <div class="child-header">아동 1</div>
+                <div class="child-row">
+                    <span class="child-label">이름</span>
+                    <span class="child-value name-val">이*안</span>
+                    <div class="gender-group">
+                        <button class="gender-btn active">남</button>
+                        <button class="gender-btn">아이</button>
+                    </div>
+                </div>
+                <div class="child-row birth-row">
+                    <span class="child-label">출생</span>
+                    <span class="child-value">2023</span>
+                    <span class="child-value">6월</span>
+                    <div class="care-group">
+                        <span class="care-label">돌봄 신청</span>
+                        <div class="toggle-sw on"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 아동 2 -->
+            <div class="child-block">
+                <div class="child-header">아동 2</div>
+                <div class="child-row">
+                    <span class="child-label">이름</span>
+                    <span class="child-value name-val">이*캔</span>
+                    <div class="gender-group">
+                        <button class="gender-btn active">남</button>
+                        <button class="gender-btn">아이</button>
+                    </div>
+                </div>
+                <div class="child-row birth-row">
+                    <span class="child-label">출생</span>
+                    <span class="child-value dropdown">2023 ▾</span>
+                    <span class="child-value dropdown">6월 ▾</span>
+                    <div class="care-group">
+                        <span class="care-label">돌봄 신청</span>
+                        <div class="toggle-sw on"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-add">+</button>
+        </div>
+
+        <!-- 동반 보호자 수 -->
+        <div class="form-section">
+            <div class="section-head">
+                <h3 class="section-title">동반 보호자 수</h3>
+                <p class="section-sub">최대 한 번 보호자 수는 2명입니다</p>
+            </div>
+            <div class="count-row">
+                <button class="count-btn active">
+                    <span class="count-dot active"></span>
+                    <span class="count-label">1명</span>
+                </button>
+                <button class="count-btn">
+                    <span class="count-dot"></span>
+                    <span class="count-label">2명</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 문자 수신 동의 -->
+        <div class="form-section">
+            <h3 class="section-title">문자 수신 동의</h3>
+            <p class="section-sub">문자 발송 수단의 한정으로 인해 카카오채널/문자로 키즈카페 서비스 관련 내용을 발송합니다.</p>
+            <div class="consent-row">
+                <div class="toggle-sw on"></div>
+                <span class="consent-label">동의합니다</span>
+            </div>
+        </div>
+
+        <!-- 개인정보 수집 이용 및 제공 동의서 -->
+        <div class="form-section">
+            <h3 class="section-title">개인정보 수집 이용 및 제공 동의서</h3>
+
+            <div class="privacy-box">
+                <p class="privacy-heading">개인정보 수집 이용 동의</p>
+                <ul class="privacy-list">
+                    <li>기간 : 서비스 이용 기간 및 분쟁해결 기간, 법정 의무보유기간(전자금융거래법, 관련 기록: 5년), 소비자 분쟁 해결 절차에 의한 보호 기간</li>
+                    <li>목적 : 서울형 키즈카페 예약 및 운영, 연락 및 공지 서비스 제공</li>
+                    <li>항목 : 정보주체의 개인정보(성명, 생년월일, 성별, 연락처)를 수집 후 5 이상 개인정보를 수집 이용합니다</li>
+                </ul>
+                <p class="privacy-heading" style="margin-top:12px;">법정대리인의 개인정보 수집이용에 제공 동의</p>
+                <ul class="privacy-list">
+                    <li>자녀의 성명 및 생년월일이 필요하며 법정대리인의 성명, 연락처 정보를 수집하여 이용합니다</li>
+                </ul>
+                <div class="consent-row privacy-consent">
+                    <div class="toggle-sw on"></div>
+                    <span class="consent-label">서울형 키즈카페 운영을 목적으로 개인정보를 수집 이용하는 것에 동의합니다.</span>
+                </div>
+            </div>
+
+            <div class="terms-box">
+                <p class="terms-intro">함께하는 놀이공간인 센터 내 안전 질서와 놀이 문화적 방역에 맞게 방문하실 수 있도록 입장규칙을 안내 드립니다.</p>
+                <ol class="terms-list">
+                    <li>원활한 서비스 제공을 위해 사전예약 필수입니다.</li>
+                    <li>안전 및 보건을 위해 발열이 있는 당일 입장이 불가합니다.</li>
+                    <li>안전을 위해 당일 예약자 외 입장이 불가합니다.</li>
+                    <li>예약한 회차가 다를 경우 사용불가합니다. (단, 키즈카페에서는 사용가능이며 일, 주차기준으로 재고확인, 창고, 주문, 소분 시 자연채취 방법으로 등재됩니다)</li>
+                    <li>동반 인원은 최소 1명에서 최대 2명입니다.</li>
+                    <li>유모차(유아차)사용이 제한될 수 있으며 안전을 위한 이유로 시설에서는 본 시설에 한 이용을 허용합니다.</li>
+                    <li>보호자(법정대리인)없이 혼자 방문이 불가합니다. 보호자에 반드시 동반해야 합니다. 무단으로 혼자 이동하거나 입장 시에는 이용을 제한합니다.</li>
+                    <li>단체예약자와 일반예약자 혼합 이용 시 일반 예약자는 인원 제한으로 이용을 제한 할 수 있습니다. (단체 예약자 우선)</li>
+                    <li>키즈카페 이용 중 발생하는 안전사고에 대해서는 보험처리의 적용에 따릅니다.</li>
+                    <li>이용 시 소지품 및 개인 물품의 분실, 파손, 도난에 대해서는 책임지지 않습니다.</li>
+                    <li>시설 내 음식물 반입은 금지하며, 시설 내에서 음식물을 취식하는 경우 이용이 제한될 수 있습니다.</li>
+                    <li>예약 취소는 이용일 기준 24시간 이내 취소/환불은 해당 정책에 따릅니다.</li>
+                    <li>이용 시 키즈카페 이용 규정을 위반 시에 이용제한(보호자도 포함) - 해당 키즈카페 내 규정을 확인하시고 이용해 주시기 바랍니다.</li>
+                    <li>위의 사항을 숙지하고 이에 따라 이용하도록 합니다.</li>
+                    <li>방문일 전 2주전부터(방문일 포함) 방문 후 한 주간은 당일 예약/이용이 불가합니다.</li>
+                </ol>
+            </div>
+
+            <div class="consent-row final-consent">
+                <div class="toggle-sw on"></div>
+                <span class="consent-label">동의합니다</span>
+            </div>
+        </div>
+
+        <!-- 예약하기 버튼 -->
+        <button class="btn-reserve" onclick="location.href='pay.html'">예약하기</button>
+
+    </div>
+</div>
+<script>
+    function switchBookTab(type) {
+        var btnIndiv   = document.getElementById('tabIndiv');
+        var btnGroup   = document.getElementById('tabGroup');
+        var sectIndiv  = document.getElementById('sect-indiv');
+        var sectGroup  = document.getElementById('sect-group');
+
+        if (type === 'indiv') {
+            btnIndiv.classList.add('active');
+            btnGroup.classList.remove('active');
+            sectIndiv.style.display = '';
+            sectGroup.style.display = 'none';
+        } else {
+            btnGroup.classList.add('active');
+            btnIndiv.classList.remove('active');
+            sectIndiv.style.display = 'none';
+            sectGroup.style.display = '';
+        }
+    }
+</script>
+</body>
+</html>

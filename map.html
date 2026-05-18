@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - Map</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+    <div class="map-container">
+
+        <!-- 카카오 지도 -->
+        <div id="map"></div>
+
+        <!-- 마커 1 -->
+        <a class="map-marker" style="left:289px; top:140px;" href="detail.html" aria-label="장소 1">
+            <img src="images/map/pick-icon.png" alt="" class="marker-icon">
+            <span class="marker-num">1</span>
+        </a>
+
+        <!-- 마커 2 -->
+        <a class="map-marker" style="left:22px; top:275px;" href="detail.html" aria-label="장소 2">
+            <img src="images/map/pick-icon.png" alt="" class="marker-icon">
+            <span class="marker-num">2</span>
+        </a>
+
+        <!-- 현재 위치 표시 -->
+        <div class="my-location"></div>
+
+        <!-- 상단: 검색창 + X버튼 -->
+        <div class="map-top">
+            <div class="map-search-box">
+                <img src="images/icon/Property 1=search.png" alt="검색" class="search-icon" width="20" height="20">
+                <span class="search-placeholder">서울형 키즈카페를 검색해보세요</span>
+            </div>
+            <button class="map-close-btn" aria-label="닫기" onclick="history.back()">
+                <img src="images/icon/Property 1=close.png" alt="닫기" width="18" height="18">
+            </button>
+        </div>
+
+        <!-- 하단 카드 슬라이더 -->
+        <div class="map-cards">
+
+            <!-- 카드 1 -->
+            <div class="map-card">
+                <div class="map-card-img" style="background-image:url('images/map/01.jpg')">
+                    <div class="card-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <img src="images/icon/pick.png" alt="찜" class="card-pick-icon">
+                </div>
+                <div class="card-title-wrap">
+                    <h2 class="card-title">서리풀노리학교 문화예술공원점</h2>
+                    <p class="card-addr">강남구, 양재동 200</p>
+                </div>
+                <ul class="card-info">
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=time.png" alt="시간" width="14" height="14">
+                        <span>9:30-18:30</span>
+                    </li>
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=point.png" alt="요금" width="13" height="13">
+                        <span>5,000</span>
+                    </li>
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=car.png" alt="주차" width="14" height="14">
+                        <span>주차불가</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="map-card">
+                <div class="map-card-img" style="background-image:url('images/map/02.png')">
+                    <div class="card-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <img src="images/icon/pick.png" alt="찜" class="card-pick-icon">
+                </div>
+                <div class="card-title-wrap">
+                    <h2 class="card-title">서울형 키즈카페 역삼1호점</h2>
+                    <p class="card-addr">강남구, 역삼동 456</p>
+                </div>
+                <ul class="card-info">
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=time.png" alt="시간" width="14" height="14">
+                        <span>9:30-18:30</span>
+                    </li>
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=point.png" alt="요금" width="13" height="13">
+                        <span>5,000</span>
+                    </li>
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=car.png" alt="주차" width="14" height="14">
+                        <span>주차불가</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="map-card">
+                <div class="map-card-img" style="background-image:url('images/map/03.jpg')">
+                    <div class="card-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <img src="images/icon/pick.png" alt="찜" class="card-pick-icon">
+                </div>
+                <div class="card-title-wrap">
+                    <h2 class="card-title">서울형 키즈카페 논현점</h2>
+                    <p class="card-addr">강남구, 논현동 123</p>
+                </div>
+                <ul class="card-info">
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=time.png" alt="시간" width="14" height="14">
+                        <span>9:30-18:30</span>
+                    </li>
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=point.png" alt="요금" width="13" height="13">
+                        <span>5,000</span>
+                    </li>
+                    <li class="info-item">
+                        <img src="images/icon/Property 1=car.png" alt="주차" width="14" height="14">
+                        <span>주차불가</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 카카오 지도 SDK (APP KEY 입력 필요) -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1aab2b5db498b54b69a79860400e470"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(37.4985, 127.0280), // 역삼 중심 좌표
+            level: 4
+        };
+        var map = new kakao.maps.Map(container, options);
+    </script>
+</body>
+</html>

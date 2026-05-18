@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 선호도 조사</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/survey.css">
+</head>
+<body>
+    <div class="survey-container">
+        <!-- 상단 네비게이션: 뒤로가기 & 건너뛰기 -->
+        <nav class="top-nav">
+            <button class="btn-back" type="button" aria-label="뒤로가기" onclick="history.back()">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="btn-skip" type="button" onclick="location.href='home.html'">건너뛰기</button>
+        </nav>
+
+        <!-- 헤더 및 진행 바 -->
+        <header class="survey-header">
+            <h1 class="main-title">
+                이*젠님의<br>
+                <span class="highlight">최애 장소</span>를 알고 싶어요
+            </h1>
+            <p class="sub-title">맞춤형 장소를 추천해드립니다.</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </header>
+
+        <!-- 이미지 그리드 선택 -->
+        <div class="grid-container">
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey01/adventure.png" alt="모험놀이">
+                <span class="label">모험놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey01/hand.png" alt="오감놀이">
+                <span class="label">오감놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey01/firefighter.png" alt="체험놀이">
+                <span class="label">체험놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item" onclick="toggleSelect(this)">
+                <img src="images/survey01/slide.png" alt="실내놀이">
+                <span class="label">실내놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+            
+            <div class="grid-item wide" onclick="toggleSelect(this)">
+                <img src="images/survey01/kindergarden.png" alt="야외놀이">
+                <span class="label">야외놀이</span>
+                <img src="images/icon/pick.png" alt="별" class="icon-star">
+            </div>
+        </div>
+
+        <div class="bottom-action">
+            <button class="btn-next" type="button" onclick="location.href='survey2.html'">다음</button>
+        </div>
+    </div>
+
+    <script>
+        // 항목 클릭 시 선택 토글 기능
+        function toggleSelect(element) {
+            element.classList.toggle('selected');
+            const star = element.querySelector('.icon-star');
+            if (element.classList.contains('selected')) {
+                star.src = 'images/icon/pick01.png';
+            } else {
+                star.src = 'images/icon/pick.png';
+            }
+        }
+    </script>
+</body>
+</html>

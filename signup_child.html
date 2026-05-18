@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 자녀 정보 입력</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <!-- 상단 네비게이션 및 뒤로가기 버튼 -->
+        <nav class="top-nav">
+            <button class="btn-back" type="button" aria-label="뒤로가기" onclick="history.back()">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+        </nav>
+
+        <header class="signup-header" style="margin-top: 10px;">
+            <h1 class="main-title">
+                이젠님의<br>
+                <span class="highlight">자녀 정보</span>를 입력해주세요.
+            </h1>
+            <p class="sub-title">노리픽에 오신 것을 환영합니다.</p>
+        </header>
+
+        <form class="signup-form">
+            <div class="form-group">
+                <label for="child-name">이름</label>
+                <input type="text" id="child-name" placeholder="이름을 입력하세요" required>
+            </div>
+
+            <div class="form-group">
+                <label for="child-birth">생년월일</label>
+                <div class="input-with-icon">
+                    <input type="text" id="child-birth" placeholder="YYYY/MM/DD" required>
+                    <!-- 캘린더 아이콘 -->
+                    <svg class="icon-calendar" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>성별</label>
+                <div class="segment-group">
+                    <button type="button" class="btn-segment">남아</button>
+                    <button type="button" class="btn-segment">여아</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="bottom-action">
+            <button class="btn-next" type="button" onclick="location.href='survey1.html'">다음</button>
+        </div>
+    </div>
+
+    <script>
+        // 간단한 세그먼트 버튼 선택 동작 예시
+        document.querySelectorAll('.btn-segment').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 다른 버튼들의 active 클래스 제거
+                document.querySelectorAll('.btn-segment').forEach(b => b.classList.remove('active'));
+                // 클릭한 버튼만 active 추가
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

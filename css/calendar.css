@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── 폰 외형 ── */
+.phone-wrap {
+    width: 430px;
+    height: 931px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+}
+
+/* ── 내부 스크롤 컨테이너 ── */
+.phone-scroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.phone-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── 페이지 콘텐츠 (이미지 + 오버레이 기준점) ── */
+.page-content {
+    position: relative;
+    width: 430px;
+    /* height: image에 맞게 자동 */
+}
+
+/* ── 전체 페이지 이미지 ── */
+/* reserve.jpg: 430×2722px / reservation-organization.jpg: 430×2905px */
+.page-img {
+    display: block;
+    width: 430px;
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* ── 개인/단체 탭 버튼 오버레이 ── */
+/*
+    Figma Y 계산 (reserve 프레임 기준):
+      padding-top 92 + div-title 144 + gap 20 + div-con01(달력+시간표) 663 + gap 20 = 939px
+
+    X: 30px (frame 15px + 내부 여백 15px)
+    W: 370px = (430 - 30×2) = 이미지 콘텐츠 폭
+    H: 50px (Figma 버튼 높이)
+*/
+.tab-overlay {
+    position: absolute;
+    top: 939px;
+    left: 30px;
+    width: 370px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    z-index: 10;
+}
+
+/* ── 탭 버튼 공통 ── */
+.tab-btn {
+    flex: 1;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.3px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+/* ── 활성 탭 (선택된 쪽) ── */
+.tab-btn.active {
+    background: #2F8EE0;
+    color: #ffffff;
+}
+
+/* ── 비활성 탭 ── */
+.tab-btn:not(.active) {
+    background: #F3F3F3;
+    color: #7E7E7E;
+}
+
+.tab-btn:active {
+    opacity: 0.85;
+}

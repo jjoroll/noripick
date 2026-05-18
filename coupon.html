@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - 쿠폰</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/coupon.css">
+</head>
+<body>
+    <div class="coupon-container">
+
+        <!-- 뒤로가기 버튼 -->
+        <button class="btn-back" aria-label="뒤로" onclick="history.back()">
+            <img src="images/coupon/arrow.png" alt="뒤로">
+        </button>
+
+        <!-- 스크롤 영역 -->
+        <div class="coupon-inner">
+
+            <!-- 배너 -->
+            <div class="banner">
+                <img src="images/coupon/decoration.png" alt="" class="banner-bg" aria-hidden="true">
+                <div class="banner-text">
+                    <p class="banner-sub">KT가 쿠폰을 씁니다!</p>
+                    <h2 class="banner-title">일상 속 혜택 가득<br>고객 감사 쿠폰 모음</h2>
+                    <p class="banner-desc">· 적립예정 포인트</p>
+                </div>
+                <img src="images/coupon/couponimg.png" alt="" class="banner-img" aria-hidden="true">
+            </div>
+
+            <!-- 쿠폰 이용현황 -->
+            <h3 class="section-title">쿠폰 이용현황</h3>
+
+            <!-- 탭 -->
+            <div class="tab-row">
+                <button class="tab-btn active">전체</button>
+                <button class="tab-btn">보유</button>
+                <button class="tab-btn">사용</button>
+            </div>
+
+            <!-- 쿠폰 목록 -->
+            <div class="coupon-list">
+
+                <!-- 쿠폰 1 -->
+                <div class="coupon-card">
+                    <img src="images/coupon/couponshape.png" alt="쿠폰" class="coupon-shape">
+                    <div class="coupon-info">
+                        <p class="coupon-amount">2천원</p>
+                        <p class="coupon-desc">KT 고객 감사 이벤트 대상</p>
+                        <p class="coupon-validity">유효기간 : 2026.05.13 - 2026.05.30</p>
+                    </div>
+                </div>
+
+                <!-- 쿠폰 2 -->
+                <div class="coupon-card">
+                    <img src="images/coupon/couponshape.png" alt="쿠폰" class="coupon-shape">
+                    <div class="coupon-info">
+                        <p class="coupon-amount">1천원</p>
+                        <p class="coupon-desc">KT 고객 감사 이벤트 대상</p>
+                        <p class="coupon-validity">유효기간 : 2026.05.13 - 2026.05.30</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

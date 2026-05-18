@@ -1,0 +1,329 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── 컨테이너 ── */
+.cal-container {
+    width: 430px;
+    height: 931px;
+    background: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── 닫기 버튼 (고정) ── */
+/* Figma span-icon: absolute x:30, y:92 */
+.btn-close {
+    position: absolute;
+    top: 92px;
+    left: 30px;
+    z-index: 20;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-close img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* ── 스크롤 영역 ── */
+/* Figma div-center: starts at y:92 (frame padding) + 85px (div-center padding) = 177px */
+.cal-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 177px 30px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.cal-inner::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── 장소명 + 구분선 ── */
+/* Figma h2-title block: column, gap:23px */
+.cal-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+/* Figma title/26/semibold */
+.cal-title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1F1F1F;
+    letter-spacing: -0.4px;
+}
+
+/* Figma border: 1px, light blue */
+.cal-hr {
+    width: 100%;
+    height: 1px;
+    background: #EDF4FA;
+    flex-shrink: 0;
+}
+
+/* ── 날짜 토글 행 ── */
+/* Figma div-today: row, justifyContent:space-between, alignItems:center, width:370px */
+.cal-date-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Figma title/26/semibold */
+.cal-today {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1F1F1F;
+    letter-spacing: -0.4px;
+}
+
+.btn-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* back 아이콘을 위(^)로 회전 */
+.icon-up {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transform: rotate(-90deg);
+}
+
+/* ── 캘린더 박스 ── */
+/* Figma div-calendar: column, alignItems:center, gap:30px,
+   padding:30px 32px 30px 33px, bg:#F8F8F8, border:#EDF4FA 1px, radius:30px, height:355px */
+.cal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 32px 30px 33px;
+    background: #F8F8F8;
+    border: 1px solid #EDF4FA;
+    border-radius: 30px;
+    height: 355px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* ── 월 네비게이션 ── */
+/* Figma div-top: row, alignItems:center, gap:115px */
+.cal-month-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 115px;
+    flex-shrink: 0;
+}
+
+.btn-month {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    flex-shrink: 0;
+}
+
+/* Figma a-back/a-forward: 14.71×14.71px */
+.icon-prev {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+}
+
+.icon-next {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    transform: scaleX(-1);
+}
+
+/* Figma body/18/medium */
+.cal-month-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1F1F1F;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+}
+
+/* ── 날짜 그리드 ── */
+/* Figma ul-date: row, 7 columns, gap:40px between columns
+   Each column: body/10/regular, lineHeight:15px, gap:30px between cells */
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 30px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Figma body/10/regular */
+.cal-day {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #1F1F1F;
+    text-align: center;
+}
+
+.cal-date {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: #1F1F1F;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15px;
+}
+
+/* 이전 달 날짜 */
+.cal-date.prev {
+    color: #B4B4B4;
+}
+
+/* 일요일 */
+.cal-date.sun {
+    color: #BB4A00;
+}
+
+/* 토요일 */
+.cal-date.sat {
+    color: #BB4A00;
+}
+
+/* 선택된 날짜 (22) */
+/* Figma span-selection: 35×35px, bg:#2F8EE0, radius:10px */
+.cal-date.selected {
+    color: #ffffff;
+    z-index: 1;
+}
+
+.cal-date.selected::before {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background: #2F8EE0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* ── 임시휴관일 ── */
+/* Figma div-bottom: column, gap:7px */
+.cal-holiday {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+/* Figma div-holiday: column, gap:4px, padding:0 15px */
+.holiday-head {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Figma body/16/medium */
+.holiday-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #1F1F1F;
+    letter-spacing: -0.2px;
+}
+
+/* Figma div-redText: row, alignItems:center, gap:63px */
+.holiday-dates {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 63px;
+    padding: 0 15px;
+}
+
+/* Figma div-leftBox / div-rightBox: 131.5px, padding:10px */
+/* Figma body/12/medium: 12px/400, lineHeight:20px, color:#BB4A00 */
+.holiday-col {
+    width: 131.5px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #BB4A00;
+    letter-spacing: -0.1px;
+    padding: 10px;
+}
+
+/* ── 예약하기 버튼 ── */
+/* Figma a-btn: absolute x:30, y:831, 369×60px, bg:#2F8EE0, radius:15px */
+.btn-reserve {
+    position: absolute;
+    left: 30px;
+    top: 831px;
+    width: 369px;
+    height: 60px;
+    background: #2F8EE0;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.btn-reserve:active {
+    background: #2579c3;
+}

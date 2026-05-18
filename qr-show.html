@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - QR코드</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/qr-show.css">
+</head>
+<body>
+    <div class="qr-container">
+
+        <!-- 닫기 버튼 Figma: x:47, y:92 -->
+        <button class="btn-close" aria-label="닫기" onclick="location.href='home.html'">
+            <img src="images/icon/Property 1=close.png" alt="닫기">
+        </button>
+
+        <!-- 제목 Figma: x:143, y:230 / body/18/medium -->
+        <h2 class="qr-title">입장을 위한 QR코드</h2>
+
+        <!-- QR 영역
+             box 프레임: x:112, y:277, 206×206px
+             QR 코드:    x:134.56, y:300, 160.88×160.88px -->
+        <div class="qr-area">
+            <img src="images/qr-show/qr box.png" alt="" class="qr-frame" aria-hidden="true">
+            <img src="images/qr-show/qr.png" alt="QR코드" class="qr-code">
+        </div>
+
+        <!-- 카드 1 Figma: x:30, y:558, height:100.68 -->
+        <div class="card-item" style="top:558px;">
+            <div class="card-left">
+                <div class="kb-logo">
+                    <img src="images/qr-show/kb-logo.png" alt="KB">
+                </div>
+                <div class="card-text">
+                    <p class="card-name">KB국민카드</p>
+                    <p class="card-number">*12 3456 **** 7890</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <img src="images/qr-show/noripay-logo.png" alt="nori pay">
+            </div>
+        </div>
+
+        <!-- 카드 2 Figma: x:30, y:669, height:100.68 -->
+        <div class="card-item" style="top:669px;">
+            <div class="card-left">
+                <div class="kb-logo">
+                    <img src="images/qr-show/kb-logo.png" alt="KB">
+                </div>
+                <div class="card-text">
+                    <p class="card-name">KB국민카드</p>
+                    <p class="card-number">*12 3456 **** 7890</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <img src="images/qr-show/noripay-logo.png" alt="nori pay">
+            </div>
+        </div>
+
+        <!-- 카드 3 Figma: x:30, y:780, height:100.68 (하단 버튼과 일부 겹침) -->
+        <div class="card-item" style="top:780px;">
+            <div class="card-left">
+                <div class="kb-logo">
+                    <img src="images/qr-show/kb-logo.png" alt="KB">
+                </div>
+                <div class="card-text">
+                    <p class="card-name">KB국민카드</p>
+                    <p class="card-number">*12 3456 **** 7890</p>
+                </div>
+            </div>
+            <div class="card-right">
+                <img src="images/qr-show/noripay-logo.png" alt="nori pay">
+            </div>
+        </div>
+
+        <!-- 하단 버튼 Figma: x:30, y:827, gap:6px -->
+        <div class="btn-row">
+            <button class="btn-remake">다시 만들기</button>
+            <button class="btn-save">이미지 저장</button>
+        </div>
+
+    </div>
+</body>
+</html>

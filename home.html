@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - Home</title>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="home-container">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+
+            <!-- 슬라이드 배경 -->
+            <div class="hero-slides">
+                <div class="hero-slide active" style="background-image:url('images/home/flower.gif');  background-size:cover;   background-position:center 30%"></div>
+                <div class="hero-slide"        style="background-image:url('images/home/aquarium.gif'); background-size:cover;    background-position:62% 65%"></div>
+                <div class="hero-slide"        style="background-image:url('images/home/art.gif'); background-size:cover;   background-position:center 35%"></div>
+                <div class="hero-slide"        style="background-image:url('images/home/cooking.gif'); background-size:cover;   background-position:center 25%"></div>
+                <div class="hero-slide"        style="background-image:url('images/home/scientist.gif'); background-size:cover;   background-position:center 20%"></div>
+            </div>
+            <div class="hero-overlay"></div>
+
+            <!-- 헤더 -->
+            <header class="home-header">
+                <img class="logo-img" src="images/logo/white-horizon.png" alt="nori Pick">
+                <div class="header-right">
+                    <button class="hdr-btn bell-btn" aria-label="알림">
+                        <svg viewBox="0 0 20 22" width="20" height="22" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8A6 6 0 0 0 4 8c0 6.5-2.5 8.5-2.5 8.5h17S16 14.5 16 8"/>
+                            <path d="M11.73 19a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="bell-badge"></span>
+                    </button>
+                    <button class="hdr-btn menu-btn" aria-label="메뉴">
+                        <svg viewBox="0 0 20 14" width="20" height="14" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round">
+                            <line x1="0" y1="1"  x2="20" y2="1"/>
+                            <line x1="0" y1="7"  x2="20" y2="7"/>
+                            <line x1="0" y1="13" x2="20" y2="13"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- 알림 말풍선 -->
+            <div class="noti-bubble"><span style="transform:translateY(1px);display:inline-block;">새로운 알림 1건이 있습니다.</span></div>
+
+            <!-- 슬라이드 텍스트 -->
+            <div class="hero-texts">
+                <div class="hero-text active">
+                    <h2>봄꽃 놀이도 할겸,<br>봄꽃 심으러 갈래?</h2>
+                    <p class="hero-subtag">체험형 키즈카페 기획전</p>
+                </div>
+                <div class="hero-text">
+                    <h2>한여름엔 아쿠아리움<br>키즈카페는 어때?</h2>
+                    <p class="hero-subtag">체험형 키즈카페 기획전</p>
+                </div>
+                <div class="hero-text">
+                    <h2>아이들의 상상이<br>예술이 되는 공간</h2>
+                    <p class="hero-subtag">체험형 키즈카페 기획전</p>
+                </div>
+                <div class="hero-text">
+                    <h2>아이와 추억도 쌓고<br>요리 실력도 늘리고</h2>
+                    <p class="hero-subtag">체험형 키즈카페 기획전</p>
+                </div>
+                <div class="hero-text">
+                    <h2>내 아이는 어떤 꿈을<br>펼치고 싶을까?</h2>
+                    <p class="hero-subtag">체험형 키즈카페 기획전</p>
+                </div>
+            </div>
+
+            <!-- 01 ——————— 05 진행 표시 -->
+            <div class="hero-progress">
+                <span class="progress-current">01</span>
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-total">05</span>
+            </div>
+
+            <!-- SCROLL -->
+            <div class="hero-scroll">
+                SCROLL
+                <svg viewBox="0 0 12 8" width="12" height="8" fill="none">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+        </section>
+
+        <!-- 추천 큐레이션 -->
+        <section class="section curation">
+            <div class="section-header">
+                <p class="section-subtitle curation-subtitle">이젠님을 위한 오늘의 추천</p>
+                <h3 class="section-title">FIT</h3>
+            </div>
+
+            <div class="tags-filter survey-tags">
+                <div class="filter-tag active">#실내놀이</div>
+                <div class="filter-tag">#미끄럼틀</div>
+                <div class="filter-tag">#볼풀장</div>
+                <div class="filter-tag">#주차장</div>
+            </div>
+
+            <div class="h-scroll">
+                <!-- card 1 -->
+                <div class="li-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="li-card-img" style="background-image:url('images/li/li-card01.png')">
+                        <button class="li-pick-btn" aria-label="찜하기">
+                            <img src="images/icon/pick.png" alt="찜" class="pick-icon" width="24" height="24">
+                        </button>
+                        <div class="li-card-body">
+                            <h4 class="li-card-name">SSANG MUN</h4>
+                            <p class="li-card-loc">도봉구 | 쌍문별 탐험대</p>
+                            <div class="li-card-tags">
+                                <span class="li-card-tag">정원38명</span>
+                                <span class="li-card-tag">수유실</span>
+                                <span class="li-card-tag">주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="li-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="li-card-img" style="background-image:url('images/li/li-card02.png')">
+                        <button class="li-pick-btn" aria-label="찜하기">
+                            <img src="images/icon/pick.png" alt="찜" class="pick-icon" width="24" height="24">
+                        </button>
+                        <div class="li-card-body">
+                            <h4 class="li-card-name">DIKI DIKI</h4>
+                            <p class="li-card-loc">동대문구 | 디키디키</p>
+                            <div class="li-card-tags">
+                                <span class="li-card-tag">정원170명</span>
+                                <span class="li-card-tag">수유실</span>
+                                <span class="li-card-tag">주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="li-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="li-card-img" style="background-image:url('images/li/li-card03.png')">
+                        <button class="li-pick-btn" aria-label="찜하기">
+                            <img src="images/icon/pick.png" alt="찜" class="pick-icon" width="24" height="24">
+                        </button>
+                        <div class="li-card-body">
+                            <h4 class="li-card-name">5색깔깔KIDS</h4>
+                            <p class="li-card-loc">양천구 | 신정7동점</p>
+                            <div class="li-card-tags">
+                                <span class="li-card-tag">정원38명</span>
+                                <span class="li-card-tag">다동이 무료</span>
+                                <span class="li-card-tag">주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="li-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="li-card-img" style="background-image:url('images/li/li-card04.png')">
+                        <button class="li-pick-btn" aria-label="찜하기">
+                            <img src="images/icon/pick.png" alt="찜" class="pick-icon" width="24" height="24">
+                        </button>
+                        <div class="li-card-body">
+                            <h4 class="li-card-name">뚝섬 자벌레</h4>
+                            <p class="li-card-loc">광진구 | 자양점</p>
+                            <div class="li-card-tags">
+                                <span class="li-card-tag">정원38명</span>
+                                <span class="li-card-tag">다동이 무료</span>
+                                <span class="li-card-tag">주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 5 -->
+                <div class="li-card" onclick="location.href='detail.html'" style="cursor:pointer">
+                    <div class="li-card-img" style="background-image:url('images/li/li-card04.png')">
+                        <button class="li-pick-btn" aria-label="찜하기">
+                            <img src="images/icon/pick.png" alt="찜" class="pick-icon" width="24" height="24">
+                        </button>
+                        <div class="li-card-body">
+                            <h4 class="li-card-name">중평공원</h4>
+                            <p class="li-card-loc">노원구 | 중평공원점</p>
+                            <div class="li-card-tags">
+                                <span class="li-card-tag">정원38명</span>
+                                <span class="li-card-tag">다동이 무료</span>
+                                <span class="li-card-tag">주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 랭킹 -->
+        <section class="section ranking">
+            <div class="section-header">
+                <div class="ranking-header-top">
+                    <span class="ranking-age-label">3세</span>
+                    <button class="ranking-age-btn" aria-label="나이 선택">
+                        <svg viewBox="0 0 12 8" width="10" height="10" fill="none">
+                            <path d="M1 1.5L6 6.5L11 1.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <h3 class="section-title">RANKING</h3>
+            </div>
+
+            <div class="tags-filter">
+                <div class="filter-tag active">인기순</div>
+                <div class="filter-tag">거리순</div>
+                <div class="filter-tag">체험형</div>
+                <div class="filter-tag">오감형</div>
+                <div class="filter-tag">모험형</div>
+            </div>
+
+            <div class="ranking-list">
+                <!-- 01 expanded -->
+                <div class="rk-item expanded">
+                    <div class="rk-item-header">
+                        <span class="rk-num">01</span>
+                        <h4 class="rk-title">시립 뚝섬 자벌레점</h4>
+                        <button class="rk-toggle" aria-label="접기">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 15L12 9L6 15"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="rk-item-body">
+                        <img src="images/ranking/ranking.png" alt="시립 뚝섬 자벌레점">
+                        <div class="rk-info-grid">
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=calendar.png" alt="요일" width="26" height="26">
+                                <span>화-일요일</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=time.png" alt="시간" width="26" height="26">
+                                <span>9:30-18:30</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=freind.png" alt="정원" width="26" height="26">
+                                <span>정원 43명</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=car.png" alt="주차" width="26" height="26">
+                                <span>유료주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 02 -->
+                <div class="rk-item">
+                    <div class="rk-item-header">
+                        <span class="rk-num">02</span>
+                        <h4 class="rk-title">광진구 중곡3동점</h4>
+                        <button class="rk-toggle" aria-label="펼치기">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9L12 15L18 9"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="rk-item-body">
+                        <img src="images/ranking/02.png" alt="광진구 중곡3동점">
+                        <div class="rk-info-grid">
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=calendar.png" alt="요일" width="26" height="26">
+                                <span>월-토요일</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=time.png" alt="시간" width="26" height="26">
+                                <span>10:00-19:00</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=freind.png" alt="정원" width="26" height="26">
+                                <span>정원 30명</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=car.png" alt="주차" width="26" height="26">
+                                <span>무료주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 03 -->
+                <div class="rk-item">
+                    <div class="rk-item-header">
+                        <span class="rk-num">03</span>
+                        <h4 class="rk-title">서리풀 노리학교</h4>
+                        <button class="rk-toggle" aria-label="펼치기">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9L12 15L18 9"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="rk-item-body">
+                        <img src="images/ranking/03.png" alt="서리풀 노리학교">
+                        <div class="rk-info-grid">
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=calendar.png" alt="요일" width="26" height="26">
+                                <span>화-일요일</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=time.png" alt="시간" width="26" height="26">
+                                <span>9:00-18:00</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=freind.png" alt="정원" width="26" height="26">
+                                <span>정원 50명</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=car.png" alt="주차" width="26" height="26">
+                                <span>유료주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 04 -->
+                <div class="rk-item">
+                    <div class="rk-item-header">
+                        <span class="rk-num">04</span>
+                        <h4 class="rk-title">동작구 맘스하트카페</h4>
+                        <button class="rk-toggle" aria-label="펼치기">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9L12 15L18 9"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="rk-item-body">
+                        <img src="images/ranking/04.png" alt="동작구 맘스하트카페">
+                        <div class="rk-info-grid">
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=calendar.png" alt="요일" width="26" height="26">
+                                <span>월-일요일</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=time.png" alt="시간" width="26" height="26">
+                                <span>10:00-20:00</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=freind.png" alt="정원" width="26" height="26">
+                                <span>정원 25명</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=car.png" alt="주차" width="26" height="26">
+                                <span>주차불가</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 05 -->
+                <div class="rk-item" style="border-bottom:none;">
+                    <div class="rk-item-header">
+                        <span class="rk-num">05</span>
+                        <h4 class="rk-title">양재 1동점</h4>
+                        <button class="rk-toggle" aria-label="펼치기">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9L12 15L18 9"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="rk-item-body">
+                        <img src="images/ranking/05.png" alt="양재 1동점">
+                        <div class="rk-info-grid">
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=calendar.png" alt="요일" width="26" height="26">
+                                <span>화-일요일</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=time.png" alt="시간" width="26" height="26">
+                                <span>9:30-18:30</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=freind.png" alt="정원" width="26" height="26">
+                                <span>정원 35명</span>
+                            </div>
+                            <div class="rk-info-cell">
+                                <img src="images/icon/Property 1=car.png" alt="주차" width="26" height="26">
+                                <span>무료주차</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAM 섹션 -->
+        <section class="program-section">
+            <!-- 헤더: 제목 + 화살표 -->
+            <div class="program-header">
+                <div class="program-header-text">
+                    <p class="program-sub">배우면서 놀아 보아요</p>
+                    <h2 class="program-title">PROGRAM</h2>
+                </div>
+                <button class="program-arrow-btn" aria-label="프로그램 더보기">
+                    <img src="images/program/arrow.png" alt="더보기">
+                </button>
+            </div>
+
+            <!-- 카드 두 장 -->
+            <div class="program-cards">
+
+                <!-- 카드 1: HEALTH EXERCISE -->
+                <div class="program-card">
+                    <img
+                        src="images/program/u2684772737_Video_of_a_cute_Asian_little_boy_around_the_age_of__51a44e68-41c3-4ef2-bbab-096a86381922.png"
+                        alt="Health Exercise" class="program-card-img">
+                    <div class="program-card-overlay">
+                        <div class="program-card-body">
+                            <h3 class="program-card-title">HEALTH<br>EXERCISE</h3>
+                            <p class="program-card-desc">중심잡기,장애물달리기 등<br>신체발달 놀이</p>
+                        </div>
+                        <button class="program-location-btn">구로구 개봉1동점</button>
+                    </div>
+                </div>
+
+                <!-- 카드 2: ENGLISH PLAY·STUDY -->
+                <div class="program-card">
+                    <img src="images/program/word.png" alt="English Play Study" class="program-card-img">
+                    <div class="program-card-overlay">
+                        <div class="program-card-body">
+                            <h3 class="program-card-title">ENGLISH<br>PLAY·STUDY</h3>
+                            <p class="program-card-desc">원어민 영어선생님과 함께<br>신나는 영어 놀이</p>
+                        </div>
+                        <button class="program-location-btn">동작 사당1동점</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 혜택 배너 -->
+        <div class="promo-banner">
+            <img class="promo-deco" src="images/banner/decoration.png" alt="">
+            <h3>kt 고객님이라면 누구나</h3>
+            <h2>20% 통신사 할인 혜택</h2>
+            <div class="promo-page">01 / 05</div>
+            <img class="promo-badge" src="images/banner/div-rightImg.png" alt="혜택 이미지">
+        </div>
+
+        <!-- 소식 & 이벤트 -->
+        <section class="section news">
+            <div class="section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <p class="section-subtitle">이 소식은 어때요?</p>
+                    <h3 class="section-title">NEWS & EVENTS</h3>
+                </div>
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="#111" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </div>
+            
+            <div class="news-card">
+                <img src="images/survey01/kindergarden.png" alt="Event">
+                <div class="news-content">
+                    <h4 class="news-title">서울형 키즈카페 봄맞이 대잔치</h4>
+                    <p class="news-desc">이번 주말엔 아이와 함께 즐거운 봄나들이 어떠세요?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 생생 후기 -->
+        <section class="section review">
+            <div class="section-header">
+                <p class="section-subtitle">어떤 점들이 좋았는지 확인해보세요!</p>
+                <h3 class="section-title">REVIEW</h3>
+            </div>
+            
+            <div class="h-scroll">
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">아이들이 안심하고 뛰어놀기 너무 좋아요. 주말마다 방문하고 있습니다! 공간도 넓고 깨끗해요.</p>
+                    <div class="review-user">
+                        <img src="images/survey03/li-bed.png" alt="user">
+                        <div class="review-user-info">
+                            <span class="review-user-name">지아엄마</span>
+                            <span class="review-user-date">2일 전</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">선생님들이 너무 친절하셔서 아이가 재미있게 놀다 왔어요. 다음에 또 올게요!</p>
+                    <div class="review-user">
+                        <img src="images/survey03/li-rest.png" alt="user">
+                        <div class="review-user-info">
+                            <span class="review-user-name">현우아빠</span>
+                            <span class="review-user-date">1주일 전</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <!-- 검색 -->
+            <button class="nav-item" aria-label="검색" onclick="location.href='search.html'">
+                <img src="images/icon/Property 1=search.png" alt="검색" class="nav-icon">
+            </button>
+            <!-- 지도 -->
+            <button class="nav-item" aria-label="지도" onclick="location.href='map.html'">
+                <img src="images/icon/Property 1=location.png" alt="지도" class="nav-icon">
+            </button>
+            <!-- 픽(찜) -->
+            <button class="nav-item active" aria-label="픽" onclick="location.href='mypick.html'">
+                <img src="images/icon/Property 1=pick.png" alt="픽" class="nav-icon">
+            </button>
+            <!-- 마이 -->
+            <button class="nav-item" aria-label="마이" onclick="location.href='coupon.html'">
+                <img src="images/icon/Property 1=freind.png" alt="마이" class="nav-icon">
+            </button>
+        </nav>
+
+    </div>
+
+    <script>
+        (function () {
+            const slides   = document.querySelectorAll('.hero-slide');
+            const texts    = document.querySelectorAll('.hero-text');
+            const fill     = document.querySelector('.progress-fill');
+            const curNum   = document.querySelector('.progress-current');
+            const total    = slides.length;
+            let cur = 0, timer;
+
+            function goTo(n) {
+                slides[cur].classList.remove('active');
+                texts[cur].classList.remove('active');
+                cur = (n + total) % total;
+                slides[cur].classList.add('active');
+                texts[cur].classList.add('active');
+                fill.style.transform = 'translateX(' + (cur * 100) + '%)';
+                curNum.textContent = String(cur + 1).padStart(2, '0');
+            }
+
+            function startAuto() {
+                timer = setInterval(() => goTo(cur + 1), 4000);
+            }
+
+            /* 터치 스와이프 */
+            let startX = 0;
+            const section = document.querySelector('.hero-section');
+            section.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            section.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) {
+                    clearInterval(timer);
+                    goTo(dx < 0 ? cur + 1 : cur - 1);
+                    startAuto();
+                }
+            });
+
+            startAuto();
+        })();
+
+        /* 필터 태그 토글 (랭킹 섹션만 적용) */
+        document.querySelectorAll('.ranking .filter-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const group = tag.closest('.tags-filter');
+                const isActive = tag.classList.contains('active');
+                group.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                if (!isActive) tag.classList.add('active');
+            });
+        });
+
+        /* 찜(별) 토글 */
+        document.querySelectorAll('.li-pick-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const img = btn.querySelector('.pick-icon');
+                const isActive = btn.classList.toggle('active');
+                img.src = isActive ? 'images/pick01.png' : 'images/pick.png';
+            });
+        });
+
+        /* 랭킹 아코디언 */
+        document.querySelectorAll('.rk-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.rk-item');
+                const isExpanded = item.classList.contains('expanded');
+
+                /* 모든 항목 닫기 */
+                document.querySelectorAll('.rk-item').forEach(el => {
+                    el.classList.remove('expanded');
+                    const chevron = el.querySelector('.rk-toggle svg path');
+                    if (chevron) chevron.setAttribute('d', 'M6 9L12 15L18 9');
+                });
+
+                /* 클릭한 항목 열기 (이미 열려 있으면 닫힌 상태 유지) */
+                if (!isExpanded) {
+                    item.classList.add('expanded');
+                    const chevron = btn.querySelector('svg path');
+                    if (chevron) chevron.setAttribute('d', 'M18 15L12 9L6 15');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

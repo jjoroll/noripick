@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NoriPick - Pay</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/pay.css">
+</head>
+<body>
+    <div class="pay-container">
+
+        <!-- 뒤로가기 -->
+        <button class="back-btn" aria-label="뒤로가기" onclick="history.back()">
+            <img src="images/pay/arrow.png" alt="뒤로가기">
+        </button>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="pay-inner">
+
+            <!-- 인사말 -->
+            <div class="pay-greeting">
+                <h2>안녕하세요,<br><span class="blue">이젠</span>님</h2>
+            </div>
+
+            <!-- 바코드 + 우측 정보 -->
+            <div class="pay-center">
+
+                <!-- 바코드 -->
+                <div class="pay-barcode">
+                    <img src="images/pay/barcode.png" alt="바코드">
+                </div>
+
+                <!-- 우측: 페이번호 + QR버튼 -->
+                <div class="pay-right">
+                    <div class="pay-number">
+                        <p class="pay-label">노리픽페이 번호</p>
+                        <p class="pay-digits">2140 5707<br>0762 2088</p>
+                    </div>
+                    <button class="qr-btn" onclick="location.href='qr-show.html'">
+
+                        <span>QR 스캔하기</span>
+                        <img src="images/pay/qr-scan.png" alt="QR 스캔">
+                    </button>
+                    <button class="qr-btn" onclick="location.href='qr-show.html'">
+
+                        <span>QR 보여주기</span>
+                        <img src="images/pay/qr-show.png" alt="QR 보여주기">
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- 보유 현황 -->
+            <ul class="pay-stats">
+                <li class="stat-box">
+                    <span class="stat-label">보유 포인트</span>
+                    <span class="stat-value">1,910P</span>
+                </li>
+                <li class="stat-box">
+                    <span class="stat-label">내 쿠폰</span>
+                    <span class="stat-value">1장</span>
+                </li>
+                <li class="stat-box">
+                    <span class="stat-label">상품권</span>
+                    <span class="stat-value">2장</span>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</body>
+</html>
